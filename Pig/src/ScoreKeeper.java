@@ -15,8 +15,6 @@ public class ScoreKeeper extends JPanel
      * @param i input used to set score of player
      */
 
-
-
     private static JTextArea p1text;
     private static JTextArea p2text;
     public ScoreKeeper()
@@ -64,7 +62,7 @@ public class ScoreKeeper extends JPanel
     public static void reset() {
         resetScores();
         updateScoresText();
-        GameWindow.save();
+        SaveManager.save();
         PlayerWindow p = new PlayerWindow();
     }
     private static void resetScores()
@@ -74,9 +72,6 @@ public class ScoreKeeper extends JPanel
         GameWindow.getPlayer2().setScore(0);
 
     }
-
-
-
 
     private static void updateScoresText()
     {
@@ -113,42 +108,19 @@ public class ScoreKeeper extends JPanel
         currentTurnText.setText(s);
     }
 
-
-    public static String getScore_string() {
-        return score_string;
-    }
-
-
-
-
-
-
     public static void setCurrentTurnScore(int currentTurnScore)
     {
         ScoreKeeper.currentTurnScore = currentTurnScore;
-
     }
 
     public static void setScoresfromSave(int savedScore1, int savedScore2) {
+
         GameWindow.getPlayer1().setScore(savedScore1);
         GameWindow.getPlayer2().setScore(savedScore2);
-    }
-
-    public static void commitScore() {
-
-
-
-    }
-
-    public static void setScore1(int savedScore) {
-
+        updateScoresText();
     }
 
     public static void addToCurrentScore(int rolledValueSum) {
-
-
-
-
         currentTurnScore+= rolledValueSum;
         updateScoresText();
     }
@@ -158,7 +130,14 @@ public class ScoreKeeper extends JPanel
 
         if (keepPoints)
         {
-            GameWindow.getCurrentPlayer().addPoints(currentTurnScore);
+            Player player = GameWindow.getCurrentPlayer();
+
+            player.addPoints(currentTurnScore);
+            if(player.getScore()>=100)
+            {
+                reset();
+                setTextWithString(player.getName() + " WINS");
+            }
             currentTurnScore = 0;
             updateScoresText();
         }
@@ -168,7 +147,7 @@ public class ScoreKeeper extends JPanel
             setTextWithString(GameWindow.getCurrentPlayer().getName() + " Rolled a 1! :( ");
 
         }
-
-        GameWindow.SWITCHPLAYERS();
+        SaveManager.save();
+        GameWindow.switchCurrentPlayer();
     }
 }

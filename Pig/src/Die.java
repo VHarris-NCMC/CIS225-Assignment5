@@ -5,8 +5,6 @@ import java.util.Random;
 
 public class Die extends JPanel {
 
-    private char character;
-    private int size;
     private static final int NUM_OF_SIDES = 6;
     private static final int DEFAULT_SIZE = 200;
 
@@ -22,7 +20,6 @@ public class Die extends JPanel {
 
     public Die()
     {
-
         setBackground(Color.white);
         setPreferredSize(new Dimension(DEFAULT_SIZE, DEFAULT_SIZE));
         setMaximumSize(getPreferredSize());
@@ -39,7 +36,6 @@ public class Die extends JPanel {
             }
         }
         showFace(faces.get(0));
-
     }
 
     public static void rollDice() {
@@ -57,8 +53,6 @@ public class Die extends JPanel {
                 }
         }
         ScoreKeeper.addToCurrentScore(rolledValueSum);
-
-
     }
 
     private int roll()
@@ -77,10 +71,7 @@ public class Die extends JPanel {
         if (currentFace != null)
         {
             this.remove(currentFace);
-
-
         }
-
         this.currentFace = face;
         this.add(face);
         updateUI();
@@ -103,8 +94,6 @@ public class Die extends JPanel {
                 setBackground(Color.white);
                 setFont(GameWindow.DEFAULT_FONT);
                 setText(value);
-
-
             }
 
 
