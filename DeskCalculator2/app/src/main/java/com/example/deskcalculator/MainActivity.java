@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.*;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class MainActivity extends Activity
@@ -99,6 +100,21 @@ public void onCreate(Bundle savedInstanceState)
 		@Override
 		public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l)
 		{
+			switch(woodTypeSpinner.getSelectedItem().toString())
+			{
+				case "PINE":
+					Desk.type = Desk.WoodType.PINE;
+					break;
+
+				case "OAK":
+					Desk.type = Desk.WoodType.OAK;
+					break;
+
+				case "MAHOGANY":
+					Desk.type = Desk.WoodType.MAHOGANY;
+					break;
+			}
+
 			updatePrice();
 		}
 
@@ -116,7 +132,8 @@ public void onCreate(Bundle savedInstanceState)
 private void updatePrice()
 {
 	TextView tv = findViewById(R.id.price_view);
-	String s = String.valueOf(Desk.getCalculatedPrice());
+	DecimalFormat df = new DecimalFormat("0.00");
+	String s = String.valueOf(df.format(Desk.getCalculatedPrice()));
 	tv.setText(s);
 }
 
@@ -149,19 +166,5 @@ private void ConfigureSpinner(Spinner spin, Desk.WoodType[] types)
 	spin.setAdapter(adapter);
 
 }
-
-public void test()
-{
-	TextView tv = findViewById(R.id.price_view);
-	tv.setText("Test Passed");
-}
-public void testInt(int i)
-{
-	TextView tv = findViewById(R.id.price_view);
-	tv.setText(i);
-}
-
-
-
 
 }
