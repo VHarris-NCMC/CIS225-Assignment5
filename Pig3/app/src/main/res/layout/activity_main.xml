@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		xmlns:tools="http://schemas.android.com/tools"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		tools:context=".MainActivity">
+
+	<androidx.constraintlayout.widget.ConstraintLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent">
+
+		<GridLayout
+				android:id="@+id/die_grid"
+				android:layout_width="match_parent"
+					app:layout_constraintTop_toTopOf="parent"
+					app:layout_constraintBottom_toTopOf="@id/currentTurnText"
+					app:layout_constraintLeft_toLeftOf="parent"
+				app:layout_constraintRight_toRightOf="parent"
+					 android:layout_height="0dp"
+				android:columnCount="3"
+				android:rowCount="3"
+		>
+			<ImageView
+					android:id="@+id/die1"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die2"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die3"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die4"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die5"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die6"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die7"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die8"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+			<ImageView
+					android:id="@+id/die9"
+					android:layout_columnSpan="1" android:layout_rowSpan="1"
+					android:background="@mipmap/die1"
+					android:visibility="invisible"
+			/>
+
+		</GridLayout>
+		<TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+		android:id="@+id/currentTurnText"
+				  app:layout_constraintBottom_toTopOf="@id/gridLayout"
+
+		/>
+		<LinearLayout
+				android:orientation="horizontal"
+				android:layout_width="408dp"
+				android:layout_height="93dp"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintLeft_toLeftOf="parent" android:id="@+id/linearLayout">
+			<Button
+					android:text="Roll"
+					app:layout_constraintBottom_toBottomOf="parent"
+					android:layout_width="0dp"
+					android:background="@color/color2"
+					android:gravity="center"
+					android:layout_weight="1"
+					android:layout_height="match_parent" android:id="@+id/rollButton"
+
+			/>
+
+			<Button
+					android:text="Take Points"
+					android:layout_weight="1"
+					app:layout_constraintBottom_toBottomOf="parent"
+					android:layout_width="0dp"
+					android:background="@color/color2"
+					android:gravity="center"
+					android:layout_height="match_parent" android:id="@+id/takePointsButton"/>
+			<Button
+					android:text="Reset"
+					android:layout_weight="1"
+					app:layout_constraintBottom_toBottomOf="parent"
+					app:layout_constraintRight_toRightOf="parent"
+					android:layout_width="0dp"
+					android:background="@color/color2"
+					android:gravity="center"
+					android:layout_height="match_parent" android:id="@+id/resetButton"/>
+		</LinearLayout>
+		<GridLayout
+				android:id="@+id/gridLayout"
+				app:layout_constraintBottom_toTopOf="@id/linearLayout"
+				android:layout_width="match_parent"
+				android:layout_height="93dp"
+				android:columnCount="5"
+				android:rowCount="2"
+				android:showDividers="middle|beginning|end">
+
+			<TextView
+					android:id="@+id/p1Text"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_rowSpan="1"
+					android:layout_columnSpan="2"
+					android:background="@color/color1"
+					android:gravity="center"
+					android:text="P1Text"
+					android:layout_columnWeight="2"
+					android:layout_rowWeight="1"/>
+
+
+			<TextView
+					android:id="@+id/spacerText"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_rowSpan="1"
+					android:layout_rowWeight="1"
+					android:layout_columnSpan="1"
+					android:visibility="invisible"
+					android:text="XX" />
+
+			<TextView
+					android:id="@+id/p2Text"
+					android:layout_width="0dp"
+					android:layout_height="wrap_content"
+					android:layout_rowSpan="1"
+					android:layout_columnSpan="2"
+					android:background="@color/color1"
+					android:gravity="center"
+					android:text="P2Text"
+					android:layout_columnWeight="2"
+					android:layout_rowWeight="1"/>
+
+			<TextView
+					android:id="@+id/tickerPanel"
+					android:layout_width="match_parent"
+					android:layout_height="wrap_content"
+					android:layout_rowSpan="1"
+					android:layout_columnSpan="5"
+					android:background="@color/color1"
+					android:gravity="center"
+					android:layout_rowWeight="1"
+					android:text="Ticker" />
+
+		</GridLayout>
+
+
+	</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
